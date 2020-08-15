@@ -2,7 +2,8 @@
 	"name": "my-vue2-project",
 	"description": "Companion code for the book \"Large Scale Apps with Vue 2 and TypeScript\" by Damiano Fusco",
 	"version": "1.0.0",
-	"private": true,
+	"author": "Damiano Fusco",
+	"license": "MIT",
 	"scripts": {
 		"serve": "cross-env VUE_APP_API_CLIENT=mock vue-cli-service serve --mode development",
 		"build": "cross-env VUE_APP_API_CLIENT=live vue-cli-service build --mode production",
