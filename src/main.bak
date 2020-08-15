@@ -1,0 +1,56 @@
+import Vue from 'vue'
+import App from '@/App.vue'
+import router from '@/router'
+import store from '@/store'
+import { i18n } from '@/plugins/i18n-wrapper'
+import { Logger, ChromeTransport } from 'underlog'
+import ArrayUtils from 'dd-arrayutils'
+import { saUniqueId } from 'sa-unique-id'
+import { saImageUtils, RawImageInfo } from 'sa-image-utils'
+
+//console.log('ArrayUtils', ArrayUtils);
+//console.log('defu', defu);
+// console.log('Logger', Logger);
+// console.log('ChromeTransport', ChromeTransport);
+
+const chromeTransport = new ChromeTransport({
+  level: 'error',
+  levelOnly: false
+})
+const logger: Logger = new Logger({
+  //levels: ['info', 'warn', 'warn-high', 'error'],
+  transports: [chromeTransport]
+})
+
+const items: string[] = ['a', 'b', 'c', 'd', 'e', 'f']
+const chunks = ArrayUtils.chunk(items, 3)
+logger.info('chunks', chunks)
+logger.info('saUniqueId.id()', saUniqueId.id())
+logger.warn('saUniqueId.id()', saUniqueId.id())
+logger.error('saUniqueId.id()', saUniqueId.id())
+logger.highlight('saUniqueId.id()', saUniqueId.id())
+
+const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/240px-JavaScript-logo.png';
+
+// get raw image info (this contains the buffer and contentType)
+saImageUtils.getRawImageFromUrl(imageUrl)
+.then((rawImageInfo: RawImageInfo) => {
+  const { buffer, contentType } = rawImageInfo;
+
+  logger.highlight('typeof buffer', typeof buffer);
+  logger.highlight('buffer.length', buffer.length);
+  logger.highlight('contentType', contentType);
+
+  // get base64 from raw image info
+  const base64 = saImageUtils.rawImageToBase64(rawImageInfo);
+  logger.highlight('base64.length', base64.length);
+});
+
+Vue.config.productionTip = false
+
+new Vue({
+  router,
+  store,
+  i18n,
+  render: h => h(App)
+}).$mount('#app')

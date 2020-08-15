@@ -1,0 +1,52 @@
+{
+	"name": "my-vue2-project",
+	"description": "Companion code for the book \"Large Scale Apps with Vue 2 and TypeScript\" by Damiano Fusco",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"serve": "cross-env VUE_APP_API_CLIENT=mock vue-cli-service serve --mode development",
+		"build": "cross-env VUE_APP_API_CLIENT=live vue-cli-service build --mode production",
+		"build-mock": "cross-env VUE_APP_API_CLIENT=mock vue-cli-service build --mode production",
+		"test:unit": "vue-cli-service test:unit",
+		"test": "npm run test:unit",
+		"stub-api-client": "plop --plopfile ./zgen/api-client/api-client-plop.js",
+		"stub-store-module": "plop --plopfile ./zgen/state/state-plop.js",
+		"pretty": "prettier --write '**/*.{ts,vue}'"
+	},
+	"dependencies": {
+		"axios": "^0.19.2",
+		"vue": "^2.6.11",
+		"vue-class-component": "^7.2.2",
+		"vue-i18n": "^8.18.2",
+		"vue-property-decorator": "^8.3.0",
+		"vue-router": "^3.1.5",
+		"vuex": "^3.1.2"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.2.8",
+		"@types/mocha": "^5.2.4",
+		"@types/sinon": "^7.5.2",
+		"@typescript-eslint/eslint-plugin": "^2.18.0",
+		"@typescript-eslint/parser": "^2.18.0",
+		"@vue/cli-plugin-eslint": "~4.2.0",
+		"@vue/cli-plugin-router": "~4.2.0",
+		"@vue/cli-plugin-typescript": "^4.3.1",
+		"@vue/cli-plugin-unit-mocha": "~4.2.0",
+		"@vue/cli-plugin-vuex": "~4.2.0",
+		"@vue/cli-service": "~4.2.0",
+		"@vue/eslint-config-typescript": "^5.0.1",
+		"@vue/test-utils": "1.0.0-beta.31",
+		"chai": "^4.1.2",
+		"cross-env": "^7.0.2",
+		"eslint": "^6.7.2",
+		"eslint-plugin-vue": "^6.1.2",
+		"handlebars": "^4.7.6",
+		"lodash": "^4.17.19",
+		"node-sass": "^4.14.1",
+		"plop": "^2.6.0",
+		"sass-loader": "^8.0.2",
+		"sinon": "^9.0.0",
+		"typescript": "~3.7.5",
+		"vue-template-compiler": "^2.6.11"
+	}
+}
