@@ -1,6 +1,9 @@
 # Large Scale Apps with Vue 2 and TypeScript
 Companion code for the book [Large Scale Apps with Vue 2 and TypeScript](
-https://leanpub.com/large-scale-apps-with-vue-and-typescript "Large Scale Apps with Vue 2 and TypeScript") by Damiano Fusco
+https://leanpub.com/large-scale-apps-with-vue2-and-typescript "Large Scale Apps with Vue 2 and TypeScript") by Damiano Fusco
+
+### NOte
+There is a new version of this repo here https://github.com/damianof/large-scale-apps-my-vue3-project and the new book version is here [Large Scale Apps with Vue 3 and TypeScript](https://leanpub.com/vue-typescript "Large Scale Apps with Vue 3 and TypeScript")
 
 <img src="/screenshots/localization-part2.png" width="500">
 
